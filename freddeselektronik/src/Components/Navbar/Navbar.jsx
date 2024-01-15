@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom';
 import './Navbar.css'
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/shopping-cart.png'
@@ -13,9 +14,9 @@ const Navbar = () => {
         <p> FreddesElektronik</p>
       </div>
       <ul className="nav-menu">
-        <li onClick={()=>{setMenu("home")}}>Home {menu==="home"?<h/>:<></>}</li>
-        <li onClick={()=>{setMenu("products")}}> Products{menu==="products"?<h/>:<></>}</li>
-        <li onClick={()=>{setMenu("contact")}}>Contact{menu==="contact"?<h/>:<></>}</li>
+       <li><Link to="/">Home</Link></li>
+        <li><Link to="/products">Products</Link></li>
+        <li><Link to="/contact">Contact</Link></li>
       </ul>
       <div className="nav-login-cart">
         <button>Login</button>

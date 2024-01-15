@@ -23,12 +23,12 @@
     font-size: 38px;
     font-weight: 600;
 }
-.nav-menu{
+.nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
     gap: 50px;
-    color: #626262;
+    color: rgb(9, 8, 8);
     font-size: 20px;
     font-weight: 500;
 }
@@ -40,6 +40,12 @@
     gap: 3px;
     cursor: pointer;
 }
+.nav-menu li a:visited {
+    color: rgb(9, 8, 8);
+    background-color: #f0f0f0; 
+
+  }
+
 .nav-login-cart {
     display: flex;
     align-items: center;
