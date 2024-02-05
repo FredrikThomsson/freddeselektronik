@@ -1,17 +1,17 @@
 // AllProducts.jsx
 import React from 'react';
 import './AllProducts.css';
-import data_product from '../Assets/data'; // Assuming your data is in a separate file
+import all_product from '../Assets/all_product'; // Assuming your data is in a separate file
 import Item from '../Item/Item';
 
 const AllProducts = ({ category }) => {
   // Assuming your product data is imported directly or obtained from an API
-  const all_product = data_product;
+  const all_products = all_product;
 
   // Filter products based on the specified category
   const filteredProducts = category
-    ? all_product.filter((product) => product.category && product.category.includes(category))
-    : all_product;
+    ? all_products.filter((product) => product.category && product.category.includes(category))
+    : all_products;
 
   return (
     <div className="products">
