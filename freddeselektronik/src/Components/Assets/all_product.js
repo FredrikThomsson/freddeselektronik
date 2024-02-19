@@ -1,6 +1,6 @@
-import p1_img from './laptop1.png'
-import p2_img from './soundbar1.png'
-import p3_img from './tv1.png'
+import p1_img from './images/laptop1.png'
+import p2_img from './images/soundbar1.png'
+import p3_img from './images/tv1.png'
 
 let all_product = [
     {

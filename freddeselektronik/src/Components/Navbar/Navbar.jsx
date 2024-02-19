@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import './Navbar.css'
-import logo from '../Assets/logo.png'
-import cart_icon from '../Assets/shopping-cart.png'
+import logo from '../Assets/images/logo.png'
+import cart_icon from '../Assets/images/shopping-cart.png'
 
 const Navbar = () => {
 

@@ -1,10 +1,10 @@
 import React from 'react'
 import './Hero.css'
-import arrow_icon from '../Assets/arrow.png'
-import hero_img from '../Assets/puter.png'
-import laptop1 from '../Assets/laptop1.png'
-import tv1 from '../Assets/tv1.png'
-import soundbar1 from '../Assets/soundbar1.png'
+import arrow_icon from '../Assets/images/arrow.png'
+import hero_img from '../Assets/images/puter.png'
+import laptop1 from '../Assets/images/laptop1.png'
+import tv1 from '../Assets/images/tv1.png'
+import soundbar1 from '../Assets/images/soundbar1.png'
 
 
 const Hero = () => {
