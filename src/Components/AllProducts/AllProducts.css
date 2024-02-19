@@ -1,0 +1,25 @@
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 100px;
+    padding-bottom: 100px;
+  }
+  
+  .product-item {
+    text-align: center;
+  }
+  
+  /* Additional styling for individual product items */
+  .product-item img {
+    max-width: 100%;
+  }
+  
+  .product-item h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .product-item .price {
+    font-weight: bold;
+  }
+  
