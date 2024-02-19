@@ -1,4 +1,3 @@
-// AllProducts.jsx
 import React from 'react';
 import './AllProducts.css';
 import all_product from '../Assets/all_product'; // Assuming your data is in a separate file
@@ -15,18 +14,17 @@ const AllProducts = ({ category }) => {
 
   return (
     <div className="products">
-      <div className="product-item">
-        {filteredProducts.map((item, i) => (
-          <Item
-            key={i}
-            id={item.id}
-            name={item.name}
-            image={item.image}
-            new_price={item.new_price}
-            old_price={item.old_price}
-          />
-        ))}
-      </div>
+      {/* Render each product item directly inside the .products container */}
+      {filteredProducts.map((item, i) => (
+        <Item
+          key={i}
+          id={item.id}
+          name={item.name}
+          image={item.image}
+          new_price={item.new_price}
+          old_price={item.old_price}
+        />
+      ))}
     </div>
   );
 };
