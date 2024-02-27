@@ -1,7 +1,7 @@
 import React from 'react';
 import AllProducts from './AllProducts';
 
-const SoundbarProducts = () => {
+const SoundProducts = () => {
   return (
     <div>
       <h2>Soundbar Products</h2>
@@ -10,4 +10,4 @@ const SoundbarProducts = () => {
   );
 };
 
-export default SoundbarProducts;
+export default SoundProducts;

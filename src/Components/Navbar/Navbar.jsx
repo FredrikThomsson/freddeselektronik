@@ -27,7 +27,7 @@ const Navbar = () => {
         <li><Link to="/contact">Contact</Link></li>
       </ul>
       <div className="nav-login-cart">
-        <button><Link to="/login">Login</Link></button>
+        <button ><Link to="/login">Login</Link></button>
         <Link to="/cart">
           <img id="cart" src={cart_icon} alt="cart" />
         </Link>
