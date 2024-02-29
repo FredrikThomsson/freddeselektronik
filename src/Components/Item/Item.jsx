@@ -26,7 +26,11 @@ const Item = (props) => {
                 {props.new_price}kr
               </div>
               <div className="item-price-old">
-                {props.old_price}kr
+              {props.old_price !== null && props.old_price !== undefined && (
+                <>
+                  {props.old_price}kr
+                </>
+              )}
               </div>
             </div>
             <Button variant="primary" onClick={handleAddToCart} className="add-to-cart"> Add To Cart</Button>

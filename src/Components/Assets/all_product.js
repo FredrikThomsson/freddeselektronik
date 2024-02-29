@@ -11,7 +11,6 @@ let all_product = [
         name:"Acer Aspire 1 A114-61 14",
         image:p1_img,
         new_price: 3500.00,
-        old_price: 4250.00,
         category: "Computer",
     },
     {
@@ -91,7 +90,6 @@ let all_product = [
         name:"Gameboy",
         image:p4_img,
         new_price: 2499.00,
-        old_price: 2999.00,
         category: ["Gaming"],
     },
     {
@@ -107,7 +105,6 @@ let all_product = [
         name:"Street fighter arcade",
         image:p6_img,
         new_price: 2499.00,
-        old_price: 2999.00,
         category: ["Gaming"],
     },
    
