@@ -20,7 +20,7 @@ let all_product = [
         image:p3_img,
         new_price: 9999.00,
         old_price: 12000.00,
-        category: "Television",
+        category: ["Television", "CurrentOffer"],
     },
     {
         id:3,
@@ -28,7 +28,7 @@ let all_product = [
         image:p2_img,
         new_price: 2999.00,
         old_price: 3599.00,
-        category: "Soundbar",
+        category: ["Soundbar", "CurrentOffer"],
     },
     {
         id:4,
@@ -92,7 +92,7 @@ let all_product = [
         image:p4_img,
         new_price: 2499.00,
         old_price: 2999.00,
-        category: ["Gaming", "CurrentOffer"],
+        category: ["Gaming"],
     },
     {
         id:12,
@@ -108,7 +108,7 @@ let all_product = [
         image:p6_img,
         new_price: 2499.00,
         old_price: 2999.00,
-        category: ["Gaming", "CurrentOffer"],
+        category: ["Gaming"],
     },
    
 ];

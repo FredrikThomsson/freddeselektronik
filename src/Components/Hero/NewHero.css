@@ -1,0 +1,46 @@
+.nav-buttons Button{
+ border: 1px solid black;
+ width: 150px;
+ height: 70px;
+ margin-top: 15px;
+ margin-right: 10px;
+ margin-left: 5rem;
+}
+.nav-buttons {
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+}
+
+.hero-img {
+   
+}
+.hero-text {
+    font-size: 35px;
+    width: 500px;
+    padding-left: 1rem;
+}
+
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    padding-top: 3rem;
+  }
+
+  .hero-column {
+    padding-top: 3rem;
+  }
+
+  .background-wrapper {
+    background-color:  #a8c3cb;
+    height: 90%;
+    width: 100%;
+    padding-left: 10px;
+
+  }
+  .current-offers {     
+    padding-top: 2rem;
+    padding-left: 28rem;
+    background-color: rgb(230, 239, 239);
+  }

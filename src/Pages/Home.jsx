@@ -2,15 +2,12 @@
 import React from 'react';
 import Hero from '../Components/Hero/Hero';
 import AllProducts from '../Components/AllProducts/AllProducts';
+import NewHero from '../Components/Hero/NewHero';
 
 const Home = () => {
   return (
     <div>
-      <Hero />
-
-     
-      <h2>Popular</h2>
-      <AllProducts category="Popular" />
+        <NewHero />
     </div>
   );
 };
