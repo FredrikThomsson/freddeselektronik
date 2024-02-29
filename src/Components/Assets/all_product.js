@@ -24,7 +24,7 @@ let all_product = [
     },
     {
         id:3,
-        name:"Samsung HW-B660/XE Soundbar",
+        name:"HW-B660/XE Soundbar",
         image:p2_img,
         new_price: 2999.00,
         old_price: 3599.00,
@@ -32,7 +32,7 @@ let all_product = [
     },
     {
         id:4,
-        name:"Samsung HW-B660/XE Soundbar",
+        name:"HW-B660/XE Soundbar",
         image:p2_img,
         new_price: 2999.00,
         old_price: 3599.00,
@@ -40,7 +40,7 @@ let all_product = [
     },
     {
         id:5,
-        name:"Samsung HW-B660/XE Soundbar",
+        name:"HW-B660/XE Soundbar",
         image:p2_img,
         new_price: 2999.00,
         old_price: 3599.00,
@@ -48,7 +48,7 @@ let all_product = [
     },
     {
         id:6,
-        name:"Samsung HW-B660/XE Soundbar",
+        name:"HW-B660/XE Soundbar",
         image:p2_img,
         new_price: 2999.00,
         old_price: 3599.00,
@@ -56,7 +56,7 @@ let all_product = [
     },
     {
         id:7,
-        name:"Samsung HW-B660/XE Soundbar",
+        name:"HW-B660/XE Soundbar",
         image:p2_img,
         new_price: 2999.00,
         old_price: 3599.00,
@@ -64,7 +64,7 @@ let all_product = [
     },
     {
         id: 8,
-        name: "Samsung HW-B660/XE Soundbar",
+        name: "HW-B660/XE Soundbar",
         image: p2_img,
         new_price: 2999.00,
         old_price: 3599.00,
@@ -72,7 +72,7 @@ let all_product = [
     },
     {
         id:9,
-        name:"Samsung HW-B660/XE Soundbar",
+        name:"HW-B660/XE Soundbar",
         image:p2_img,
         new_price: 2999.00,
         old_price: 3599.00,
@@ -80,7 +80,7 @@ let all_product = [
     },
     {
         id:10,
-        name:"Samsung HW-B660/XE Soundbar",
+        name:"HW-B660/XE Soundbar",
         image:p2_img,
         new_price: 2999.00,
         old_price: 3599.00,

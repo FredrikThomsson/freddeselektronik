@@ -8,7 +8,6 @@ import Image from 'react-bootstrap/Image';
 import TV from '../Assets/images/LGsmarttv.png'
 import AllProducts from '../../Components/AllProducts/AllProducts';
 
-
 const NewHero = () => {
   return (
     <div>

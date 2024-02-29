@@ -90,5 +90,13 @@
     border-radius: 10px;
 }
 .bg-body-tertiary {
-    background-color: rgb(252, 248, 248) !important;
+ background-color: rgb(230, 239, 239) !important;
+}
+.icon-link svg {
+    height: 45px !important; 
+    width: 45px !important;
+    margin-right: 2rem;
+}
+.icon-link path {
+fill: black;
 }

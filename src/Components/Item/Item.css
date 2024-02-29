@@ -1,5 +1,6 @@
 .item {
     width: 350px;
+    position: relative;
 }
 .item p{
     margin: 6px 0px;
@@ -8,6 +9,7 @@
 .item-prices{
     display: flex;
     gap: 20px;
+    padding-bottom: 5px;
 }
 .item-price-new{
     color: #374151;
@@ -24,3 +26,9 @@
     transform: scale(1.05);
     transition: 0.6s;
 }
+.item-link {
+    text-decoration: none;
+}
+.item-card {
+    height: 100%;
+  }
