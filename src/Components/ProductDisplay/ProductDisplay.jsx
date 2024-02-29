@@ -16,7 +16,13 @@ const ProductDisplay = (props) => {
       <div className="productdisplay-right">
         <h1>{product.name}</h1>
         <div className="productdisplay-right-prices">
-        <div className="productdisplay-right-price-old">{product.old_price}kr </div>
+        <div className="productdisplay-right-price-old">
+              {props.old_price !== null && props.old_price !== undefined && (
+                <>
+                  {props.old_price}kr
+                </>
+              )}
+              </div>
         <div className="productdisplay-right-price-new">{product.new_price}kr </div>
         </div>
         <div className="productdisplay-right-description"></div>
