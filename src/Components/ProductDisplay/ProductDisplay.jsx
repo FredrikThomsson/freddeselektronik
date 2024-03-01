@@ -15,6 +15,7 @@ const ProductDisplay = (props) => {
       </div>
       <div className="productdisplay-right">
         <h1>{product.name}</h1>
+        <p>{product.description}</p>
         <div className="productdisplay-right-prices">
         <div className="productdisplay-right-price-old">
               {props.old_price !== null && props.old_price !== undefined && (

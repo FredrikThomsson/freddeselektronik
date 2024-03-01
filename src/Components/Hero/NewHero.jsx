@@ -6,7 +6,10 @@ import Button from 'react-bootstrap/Button';
 import './NewHero.css'
 import Image from 'react-bootstrap/Image';
 import TV from '../Assets/images/LGsmarttv.png'
+import SlideshowPhone from '../Assets/images/Phone-slideshow.png'
 import AllProducts from '../../Components/AllProducts/AllProducts';
+import Carousel from 'react-bootstrap/Carousel';
+import ExampleCarouselImage from '../../Components/Assets/Carouse/ExampleCarouseImage.js';
 import { Link } from 'react-router-dom';
 
 const NewHero = () => {
@@ -86,8 +89,36 @@ const NewHero = () => {
 
       <div className="current-offers"> 
       <h2>Current offers</h2>
+      <div className='current-offer-products'> 
       <AllProducts category="CurrentOffer" />
       </div>
+      </div>
+      
+      <div className='Carousel'> 
+      <Carousel>
+      <Carousel.Item>
+      <ExampleCarouselImage src={SlideshowPhone} height='400px' width='800px' text="Third slide" />
+        <Carousel.Caption>
+        <h3>Laptop</h3>
+       <p>Shop our latest collection of laptops.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+      <ExampleCarouselImage src={SlideshowPhone} height='400px' width='800px' text="Third slide" />
+        <Carousel.Caption>
+          <h3>Smartphone</h3>
+          <p>Explore our wide range of smartphones.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+      <ExampleCarouselImage src={SlideshowPhone} height='400px' width='800px' text="Third slide" />
+        <Carousel.Caption>
+        <h3>TVs</h3>
+          <p>Discover our selection of high-quality TVs.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+    </div>
     </div>
   )
 }

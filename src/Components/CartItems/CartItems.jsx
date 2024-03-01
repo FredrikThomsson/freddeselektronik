@@ -40,7 +40,7 @@ const CartItems = () => {
             </div>
           );
         }
-        return null; // Added to handle the case where the condition is not met
+        return null; 
       })}
     </div>
   );

@@ -13,6 +13,7 @@ const AllProducts = ({ category }) => {
     : all_products;
 
   return (
+
     <div className="products">
       {/* Render each product item directly inside the .products container */}
       {filteredProducts.map((item, i) => (
@@ -26,6 +27,7 @@ const AllProducts = ({ category }) => {
         />
       ))}
     </div>
+
   );
 };
 

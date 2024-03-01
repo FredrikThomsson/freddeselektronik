@@ -1,14 +1,14 @@
 import React from 'react';
 import AllProducts from '../Components/AllProducts/AllProducts';
+import './CSS/Products.css'
 
 const Products = () => {
   return (
     <div>
-       <h2>All of our Products</h2>
-
+      <h2 className='title'>All of our products</h2>
       <AllProducts />
 
-      <h2>Computer Products</h2>
+      <h2>Computer products</h2>
       <AllProducts category="Computer" /> 
 
       <h2>Television Products</h2>

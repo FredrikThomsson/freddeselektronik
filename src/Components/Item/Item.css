@@ -1,7 +1,4 @@
-.item {
-    width: 350px;
-    position: relative;
-}
+
 .item p{
     margin: 6px 0px;
     
@@ -32,3 +29,13 @@
 .item-card {
     height: 100%;
   }
+.add-to-cart{
+    background-color: black;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.item-img {
+    padding-left: 5px;
+    padding-right: 5px;
+}
