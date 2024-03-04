@@ -5,6 +5,18 @@ export default {
     title: 'Order',
     type: 'document',
     fields: [
+    {
+        name: 'name',
+        title: 'First name',
+        type: 'string',
+
+        },
+        {
+        name: 'lastname',
+        title: 'Last name',
+        type: 'string',
+
+        },
       {
         name: 'email',
         title: 'Email',

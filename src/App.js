@@ -17,6 +17,7 @@ import Gaming from './Pages/Gaming';
 import Footer from './Components/Footer/Footer';
 import ShopContextProvider from './Context/ShopContext';
 import Checkout from './Components/Checkout/Checkout';
+import Order from './Components/Order/Order';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/televisions" element={<Televisions />} />
             <Route path="/gaming" element={<Gaming />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order" element={<Order />} />
           </Routes>
           <Footer />
         </div>
