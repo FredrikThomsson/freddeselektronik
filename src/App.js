@@ -14,6 +14,7 @@ import Computers from './Pages/Computers';
 import Sound from './Pages/Sound';
 import Televisions from './Pages/Televisions';
 import Gaming from './Pages/Gaming';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <div>
 
         <NewNavbar />
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
@@ -34,6 +36,7 @@ function App() {
           <Route path="/televisions" element={<Televisions />} />
           <Route path="/gaming" element={<Gaming />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
