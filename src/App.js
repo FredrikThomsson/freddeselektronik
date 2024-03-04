@@ -16,7 +16,7 @@ import Televisions from './Pages/Televisions';
 import Gaming from './Pages/Gaming';
 import Footer from './Components/Footer/Footer';
 import ShopContextProvider from './Context/ShopContext';
-
+import Checkout from './Components/Checkout/Checkout';
 
 function App() {
   return (
@@ -35,6 +35,7 @@ function App() {
             <Route path="/sound" element={<Sound />} />
             <Route path="/televisions" element={<Televisions />} />
             <Route path="/gaming" element={<Gaming />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
           <Footer />
         </div>

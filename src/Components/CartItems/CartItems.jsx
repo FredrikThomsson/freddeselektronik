@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import './CartItems.css';
 import { ShopContext } from '../../Context/ShopContext';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const CartItems = () => {
   const { all_product, cartItems, removeFromCart, addToCart, removeAll  } = useContext(ShopContext);
@@ -42,6 +44,12 @@ const CartItems = () => {
         }
         return null; 
       })}
+
+      <div>
+        <Link to="/checkout">
+      <Button variant="primary">Proceed to checkout</Button>{' '}
+      </Link>
+      </div>
     </div>
   );
 };
