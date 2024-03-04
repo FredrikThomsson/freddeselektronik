@@ -15,29 +15,30 @@ import Sound from './Pages/Sound';
 import Televisions from './Pages/Televisions';
 import Gaming from './Pages/Gaming';
 import Footer from './Components/Footer/Footer';
+import ShopContextProvider from './Context/ShopContext';
 
 
 function App() {
   return (
     <Router>
-      <div>
-
-        <NewNavbar />
-      
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/product/:productId" element={<ProductPage />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<LoginSignup />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/computers" element={<Computers />} />
-          <Route path="/sound" element={<Sound />} />
-          <Route path="/televisions" element={<Televisions />} />
-          <Route path="/gaming" element={<Gaming />} />
-        </Routes>
-        <Footer />
-      </div>
+      <ShopContextProvider>
+        <div>
+          <NewNavbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/product/:productId" element={<ProductPage />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<LoginSignup />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/computers" element={<Computers />} />
+            <Route path="/sound" element={<Sound />} />
+            <Route path="/televisions" element={<Televisions />} />
+            <Route path="/gaming" element={<Gaming />} />
+          </Routes>
+          <Footer />
+        </div>
+      </ShopContextProvider>
     </Router>
   );
 }

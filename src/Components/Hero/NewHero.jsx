@@ -12,6 +12,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from '../../Components/Assets/Carouse/ExampleCarouseImage.js';
 import { Link } from 'react-router-dom';
 
+
 const NewHero = () => {
   return (
     <div>

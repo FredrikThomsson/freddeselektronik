@@ -21,40 +21,39 @@ function BasicExample() {
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
+    <Container>
       <div className="nav-logo">
         <img id="logo" src={logo} alt="logo" />
-        <Navbar.Brand href="/">FreddesElektronik</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">FreddesElektronik</Navbar.Brand>
       </div>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/contact">Contact</Nav.Link>
-            <NavDropdown title="Products" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/products">All products</NavDropdown.Item>
-              <NavDropdown.Item href="/computers">Computers</NavDropdown.Item>
-              <NavDropdown.Item href="/televisions">Televisions</NavDropdown.Item>
-              <NavDropdown.Item href="/sound">Sound</NavDropdown.Item>
-              <NavDropdown.Item href="/gaming">Gaming</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Link to="/login" className="icon-link">
-  <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-  </svg>
-</Link>
-          <div className="nav-login-cart">
-
-            <Link to="/cart">
-              <img id="cart" src={cart_icon} alt="cart" />
-            </Link>
-            <div className="nav-cart-count">{cartQuantity}</div>
-          </div>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link as={Link} to="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+          <NavDropdown title="Products" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} to="/products">All products</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/computers">Computers</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/televisions">Televisions</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/sound">Sound</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/gaming">Gaming</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        <Link to="/login" className="icon-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+        </Link>
+        <div className="nav-login-cart">
+          <Link to="/cart">
+            <img id="cart" src={cart_icon} alt="cart" />
+          </Link>
+          <div className="nav-cart-count">{cartQuantity}</div>
+        </div>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
   );
 }
 
