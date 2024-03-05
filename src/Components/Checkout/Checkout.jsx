@@ -19,6 +19,22 @@ const Checkout = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
+        //Array to store product details
+        const products = [];
+        all_product.forEach(product => {
+          if (cartItems[product.id] > 0) {
+              products.push({
+                  _key: product.id,
+                  id: product.id,
+                  name: product.name,
+                  price: product.new_price,
+                  quantity: cartItems[product.id],
+                  totalPrice: product.new_price * cartItems[product.id]
+              });
+          }
+      });
+
+
         const formData = {
             // Define values to store in sanity
             name: e.target.name.value,
@@ -29,6 +45,7 @@ const Checkout = () => {
             country: e.target.country.value,
             zip: e.target.zip.value,
             agreedToTerms: e.target.agreedToTerms.checked,
+            products: products 
         };
     
         // Send data to Sanity

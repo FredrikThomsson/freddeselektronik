@@ -52,6 +52,43 @@ export default {
         title: 'Agreed to Terms',
         type: 'boolean',
       },
-    ],
-  };
-  
+      
+      {
+        name: 'products',
+        title: 'Products',
+        type: 'array',
+        of: [
+            {
+                type: 'object',
+                fields: [
+                    {
+                        name: 'id',
+                        title: 'ID',
+                        type: 'number',
+                    },
+                    {
+                        name: 'name',
+                        title: 'Name',
+                        type: 'string',
+                    },
+                    {
+                        name: 'price',
+                        title: 'Price',
+                        type: 'number',
+                    },
+                    {
+                        name: 'quantity',
+                        title: 'Quantity',
+                        type: 'number',
+                    },
+                    {
+                        name: 'totalPrice',
+                        title: 'Total Price',
+                        type: 'number',
+                    },
+                ],
+            },
+        ],
+    },
+],
+};
