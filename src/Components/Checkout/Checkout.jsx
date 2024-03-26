@@ -1,12 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../../Context/ShopContext';
 import './Checkout.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { createClient } from '@sanity/client';
 import { useNavigate } from 'react-router-dom';  
+import { fetchOrderId } from '../../api/dataFetcher';
 
 const Checkout = () => {
+
+  const [nextOrderId, setNextOrderId] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const latestOrder = await fetchOrderId();
+      if (latestOrder && latestOrder.orderId) {
+        setNextOrderId(latestOrder.orderId + 1);
+      } else {
+        setNextOrderId(1);
+      }
+    }
+    fetchData();
+  }, []);
+
+
+
     const { all_product, cartItems } = useContext(ShopContext);
     const navigate = useNavigate(); 
 
@@ -18,27 +36,24 @@ const Checkout = () => {
         useCdn: true, 
       });
     
-    const handleSubmit = async (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        //Array to store product details
-        const products = [];
-        all_product.forEach(product => {
-          if (cartItems[product.id] > 0) {
-              products.push({
-                  _key: product.id,
-                  id: product.id,
-                  name: product.name,
-                  price: product.new_price,
-                  quantity: cartItems[product.id],
-                  totalPrice: product.new_price * cartItems[product.id]
-              });
-          }
-      });
-
-
+    
+        const products = all_product.reduce((acc, product) => {
+            if (cartItems[product.id] > 0) {
+                acc.push({
+                    _key: product.id,
+                    id: product.id,
+                    name: product.name,
+                    price: product.new_price,
+                    quantity: cartItems[product.id],
+                    totalPrice: product.new_price * cartItems[product.id]
+                });
+            }
+            return acc;
+        }, []);
+    
         const formData = {
-            // Define values to store in sanity
             name: e.target.name.value,
             lastname: e.target.lastname.value,
             email: e.target.email.value,
@@ -46,28 +61,27 @@ const Checkout = () => {
             city: e.target.city.value,
             country: e.target.country.value,
             zip: e.target.zip.value,
-            agreedToTerms: e.target.agreedToTerms.checked,
-            products: products 
+            products: products, 
+            orderId: nextOrderId,
         };
     
-        // Send data to Sanity
         try {
             const response = await client.create({
                 ...formData,
-                _type: 'order', 
+                _type: 'order',
             });
             console.log('Order created:', response);
-            // Clear form after successful submission
             e.target.reset();
-            navigate('/order');  
-           
-           
+    
+            // Directly pass the created order response to the next page or state
+            navigate('/order', { state: { order: response } }); 
         } catch (error) {
             console.error('Error creating order:', error.message);
         }
     };
     
     
+
 
   return (
     <div>

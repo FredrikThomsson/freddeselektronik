@@ -46,9 +46,9 @@ export default {
     
       },
       {
-        name: 'agreedToTerms',
-        title: 'Agreed to Terms',
-        type: 'boolean',
+        name: 'orderId',
+        title: 'Order ID',
+        type: 'number',
       },
       
       {
