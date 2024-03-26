@@ -1,5 +1,3 @@
-
-
 export default {
     name: 'order',
     title: 'Order',

@@ -4,9 +4,11 @@ import './Checkout.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { createClient } from '@sanity/client';
+import { useNavigate } from 'react-router-dom';  
 
 const Checkout = () => {
     const { all_product, cartItems } = useContext(ShopContext);
+    const navigate = useNavigate(); 
 
     const client = createClient({
         projectId: '0zsmvis5',
@@ -57,6 +59,7 @@ const Checkout = () => {
             console.log('Order created:', response);
             // Clear form after successful submission
             e.target.reset();
+            navigate('/order');  
            
            
         } catch (error) {
