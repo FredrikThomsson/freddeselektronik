@@ -12,3 +12,8 @@ export async function fetchOrderId() {
   `;
   return await client.fetch(orderIdQuery);
 }
+
+export async function fetchLatestOrder() {
+  const latestOrderQuery = `*[_type == "order"] | order(_createdAt desc) [0]`;
+  return await client.fetch(latestOrderQuery);
+}
