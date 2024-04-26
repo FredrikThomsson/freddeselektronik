@@ -89,7 +89,8 @@ const NewHero = () => {
       </Container>
 
       <div className="current-offers"> 
-      <h2>Current offers</h2>
+      <h2> Our current offers</h2>
+      <br></br>
       <div className='current-offer-products'> 
       <AllProducts category="CurrentOffer" />
       </div>

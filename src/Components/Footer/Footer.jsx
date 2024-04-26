@@ -12,7 +12,7 @@ const Footer = () => {
           <Col>
             <Row>
               <Col>
-                <p className='footer-title'>FreddesElektronik</p>
+                <p className='footer-title1'>FreddesElektronik</p>
                 <p>Payment information</p>
                 <p>Delivery information</p>
                 <p>Shipping information</p>
@@ -20,14 +20,14 @@ const Footer = () => {
               </Col>
 
               <Col>
-                <p className='footer-title'>Customer support</p>
+                <p className='footer-title2'>Customer support</p>
                 <p>Technical support</p>
                 <p>FAQ</p>
                 <p>Contact us</p>
               </Col>
 
               <Col>
-                <p className='footer-title' >Inspiration</p>
+                <p className='footer-title3' >Inspiration</p>
                 <p>Newsletter</p>
                 <p>Event</p>
               </Col>
@@ -42,12 +42,13 @@ const Footer = () => {
               <p className='instagram'>Follow us on Instagram</p>
             </span>
           </Col>
-        </Row>
-        <div className="footer-copyright">
+          <div className="footer-copyright">
           <p>© 2023 Freddeselektronik AB</p>
           <p>Terms of service</p>
           <p>Privacy Policy</p>
         </div>
+        </Row>
+       
       </Container>
     </footer>
   );

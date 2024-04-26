@@ -7,12 +7,12 @@ import { createClient } from '@sanity/client';
 import { useNavigate } from 'react-router-dom';
 import { fetchOrderId } from '../../api/dataFetcher';
 
-
 const Checkout = () => {
   const { all_product, cartItems } = useContext(ShopContext);
   const navigate = useNavigate();
   const [nextOrderId, setNextOrderId] = useState(null);
   const [formValid, setFormValid] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0); // State to hold total price
 
   const [formData, setFormData] = useState({
     name: '',
@@ -30,6 +30,8 @@ const Checkout = () => {
     ccCVV: '', 
   });
 
+  
+
   useEffect(() => {
     async function fetchData() {
       const latestOrder = await fetchOrderId();
@@ -40,19 +42,30 @@ const Checkout = () => {
 
   useEffect(() => {
     const isValid = formData.name.trim() && 
-    formData.lastname.trim() && 
-    formData.email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/) && // Simple email validation
-    formData.address.trim() && 
-    formData.city.trim() && 
-    formData.country.trim() && 
-    formData.zip.trim() &&
-    formData.agreedToTerms &&
-    formData.ccName.trim() &&
-    formData.ccNumber.trim() && 
-    formData.ccExpiration.trim() &&
-    formData.ccCVV.trim();
-setFormValid(isValid);
-}, [formData]);
+      formData.lastname.trim() && 
+      formData.email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/) && // Simple email validation
+      formData.address.trim() && 
+      formData.city.trim() && 
+      formData.country.trim() && 
+      formData.zip.trim() &&
+      formData.agreedToTerms &&
+      formData.ccName.trim() &&
+      formData.ccNumber.trim() && 
+      formData.ccExpiration.trim() &&
+      formData.ccCVV.trim();
+    setFormValid(isValid);
+  }, [formData]);
+
+  useEffect(() => {
+    // Calculate total price
+    const total = all_product.reduce((acc, product) => {
+      if (cartItems[product.id] > 0) {
+        return acc + (product.new_price * cartItems[product.id]);
+      }
+      return acc;
+    }, 0);
+    setTotalPrice(total);
+  }, [all_product, cartItems]);
 
   const handleInputChange = (event) => {
     const { id, value, type, checked } = event.target;
@@ -108,124 +121,142 @@ setFormValid(isValid);
   };
 
   return (
-    <div>
-      {all_product.map((e) => {
-        if (cartItems[e.id] > 0) {
-          return (
-            <div key={e.id}>
-              <div>
-                <img src={e.image} alt="" width="50px" height="50px" />
-                <p>{e.name}</p>
-                <p>{e.new_price}kr</p>
-                <p className='quantity'> x{cartItems[e.id]}</p>
-                <p>Total: {e.new_price * cartItems[e.id]}kr </p>
+    <div className="container">
+      <div className="form-container">
+        {all_product.map((e) => {
+          if (cartItems[e.id] > 0) {
+            return (
+              <div key={e.id}>
+                <div>
+                  <img src={e.image} alt="" width="50px" height="50px" />
+                  <p>{e.name}</p>
+                  <p>{e.new_price}kr</p>
+                  <p className='quantity'> x{cartItems[e.id]}</p>
+                  <p>Total: {e.new_price * cartItems[e.id]}kr </p>
+                </div>
               </div>
+            );
+          }
+          return null;
+        })}
+
+<p className="total-price">Total Price: {totalPrice}kr</p>
+
+
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="name">
+            <Form.Label>First name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter first name"
+              value={formData.name}
+              onChange={handleInputChange} 
+              style={{ maxWidth: '300px' }} />
+          </Form.Group>
+
+          <Form.Group controlId="lastname">
+            <Form.Label>Last name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter last name"
+              value={formData.lastname}
+              onChange={handleInputChange} 
+              style={{ maxWidth: '300px' }} />
+          </Form.Group>
+
+          <Form.Group controlId="email">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              value={formData.email}
+              onChange={handleInputChange} 
+              style={{ maxWidth: '300px' }} />
+          </Form.Group>
+
+          <Form.Group controlId="address">
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter address"
+              value={formData.address}
+              onChange={handleInputChange} 
+              style={{ maxWidth: '300px' }} />
+          </Form.Group>
+
+          <Form.Group controlId="city">
+            <Form.Label>City</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter city"
+              value={formData.city}
+              onChange={handleInputChange} 
+              style={{ maxWidth: '300px' }} />
+          </Form.Group>
+
+          <Form.Group controlId="country">
+            <Form.Label>Country</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter country"
+              value={formData.country}
+              onChange={handleInputChange} 
+              style={{ maxWidth: '300px' }} />
+          </Form.Group>
+
+          <Form.Group controlId="zip">
+            <Form.Label>Zip</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter zip"
+              value={formData.zip}
+              onChange={handleInputChange} 
+              style={{ maxWidth: '300px' }} />
+          </Form.Group>
+
+          <Form.Group controlId="agreedToTerms">
+            <Form.Check
+              type="checkbox"
+              label="I have read and agree to the website terms and conditions"
+              checked={formData.agreedToTerms}
+              onChange={handleInputChange} 
+              style={{ maxWidth: '300px' }} />
+          </Form.Group>
+
+          <h4 className="mb-3">Payment</h4>
+
+          <div className="row">
+            <div className="col-md-6 mb-3">
+              <label htmlFor="cc-name">Name on card</label>
+              <input type="text" className="form-control" id="ccName" value={formData.ccName} onChange={handleInputChange} placeholder="" required />
             </div>
-          );
-        }
-        return null;
-      })}
+            <div className="col-md-6 mb-3">
+              <label htmlFor="cc-number">Credit card number</label>
+              <input type="text" className="form-control" id="ccNumber" value={formData.ccNumber} onChange={handleInputChange} placeholder="" required />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-3 mb-3">
+              <label htmlFor="cc-expiration">Expiration</label>
+              <input type="text" className="form-control" id="ccExpiration" value={formData.ccExpiration} onChange={handleInputChange} placeholder="" required />
+            </div>
+            <div className="col-md-3 mb-3">
+              <label htmlFor="cc-cvv">CVV</label>
+              <input type="text" className="form-control" id="ccCVV" value={formData.ccCVV} onChange={handleInputChange} placeholder="" required />
+            </div>
+          </div>
 
+         
+        </Form>
 
-<Form onSubmit={handleSubmit}>
-  <Form.Group controlId="name">
-    <Form.Label>First name</Form.Label>
-    <Form.Control
-      type="text"
-      placeholder="Enter first name"
-      value={formData.name}
-      onChange={handleInputChange} />
-  </Form.Group>
+        <Button variant="primary" type="submit" disabled={!formValid} className="button-margin"> Place order</Button>
+          <br></br>
+        
+          <p>(If the button isn't responding please check if the form is filled correctly.)</p>
 
-  <Form.Group controlId="lastname">
-    <Form.Label>Last name</Form.Label>
-    <Form.Control
-      type="text"
-      placeholder="Enter last name"
-      value={formData.lastname}
-      onChange={handleInputChange} />
-  </Form.Group>
+      </div>
+    </div>
+  );
+};
 
-  <Form.Group controlId="email">
-    <Form.Label>Email</Form.Label>
-    <Form.Control
-      type="email"
-      placeholder="Enter email"
-      value={formData.email}
-      onChange={handleInputChange} />
-  </Form.Group>
-
-  <Form.Group controlId="address">
-    <Form.Label>Address</Form.Label>
-    <Form.Control
-      type="text"
-      placeholder="Enter address"
-      value={formData.address}
-      onChange={handleInputChange} />
-  </Form.Group>
-
-  <Form.Group controlId="city">
-    <Form.Label>City</Form.Label>
-    <Form.Control
-      type="text"
-      placeholder="Enter city"
-      value={formData.city}
-      onChange={handleInputChange} />
-  </Form.Group>
-
-  <Form.Group controlId="country">
-    <Form.Label>Country</Form.Label>
-    <Form.Control
-      type="text"
-      placeholder="Enter country"
-      value={formData.country}
-      onChange={handleInputChange} />
-  </Form.Group>
-
-  <Form.Group controlId="zip">
-    <Form.Label>Zip</Form.Label>
-    <Form.Control
-      type="text"
-      placeholder="Enter zip"
-      value={formData.zip}
-      onChange={handleInputChange} />
-  </Form.Group>
-
-  <Form.Group controlId="agreedToTerms">
-    <Form.Check
-      type="checkbox"
-      label="I have read and agree to the website terms and conditions"
-      checked={formData.agreedToTerms}
-      onChange={handleInputChange} />
-  </Form.Group>
-
-  <h4 className="mb-3">Payment</h4>
-
-<div className="row">
-  <div className="col-md-6 mb-3">
-    <label htmlFor="cc-name">Name on card</label>
-    <input type="text" className="form-control" id="ccName" value={formData.ccName} onChange={handleInputChange} placeholder="" required />
-  </div>
-  <div className="col-md-6 mb-3">
-    <label htmlFor="cc-number">Credit card number</label>
-    <input type="text" className="form-control" id="ccNumber" value={formData.ccNumber} onChange={handleInputChange} placeholder="" required />
-  </div>
-</div>
-<div className="row">
-  <div className="col-md-3 mb-3">
-    <label htmlFor="cc-expiration">Expiration</label>
-    <input type="text" className="form-control" id="ccExpiration" value={formData.ccExpiration} onChange={handleInputChange} placeholder="" required />
-  </div>
-  <div className="col-md-3 mb-3">
-    <label htmlFor="cc-cvv">CVV</label>
-    <input type="text" className="form-control" id="ccCVV" value={formData.ccCVV} onChange={handleInputChange} placeholder="" required />
-  </div>
-</div>
-
-  <Button variant="primary" type="submit" disabled={!formValid}>Place order</Button>
-</Form>
-</div>
-  )
-}
-
-export default Checkout
+export default Checkout;

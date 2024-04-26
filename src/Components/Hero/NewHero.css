@@ -51,3 +51,10 @@
     margin: 0 auto;
     padding-bottom: 5rem;
 }
+.current-offers {
+  padding-top: 4rem;
+  background-color: rgb(230, 239, 239);
+  text-align: center; /* Center the text horizontally */
+  margin-bottom: 40px;
+  
+}

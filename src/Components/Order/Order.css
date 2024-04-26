@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .order-wrapper {
+    max-width: 800px; /* Adjust the maximum width of the content */
+    padding: 20px;
+  }
+  

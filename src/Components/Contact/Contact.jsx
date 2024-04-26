@@ -8,13 +8,13 @@ const Contact = () => {
   }
 
   const handleEmail = () => {
-    // Handle email functionality
+    window.open('mailto:freddeselektronik@gmail.com', '_blank');
   }
 
   const handleOther = () => {
     // Handle other information functionality
   }
-<br></br>
+
   return (
     <div className="contact-container">
       <h1>Välkommen till Kundservice</h1>
