@@ -1,11 +1,19 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .order-wrapper {
-    max-width: 800px; /* Adjust the maximum width of the content */
-    padding: 20px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.order-wrapper {
+  max-width: 800px; 
+  text-align: center; 
+  margin-bottom: 40px; 
+}
+
+.order-wrapper {
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 40px;
+  border: 2px solid #ccc; /* Add border property */
+  padding: 20px; /* Add padding for better appearance */
+}

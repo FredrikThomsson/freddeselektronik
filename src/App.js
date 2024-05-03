@@ -18,6 +18,7 @@ import Footer from './Components/Footer/Footer';
 import ShopContextProvider from './Context/ShopContext';
 import Checkout from './Components/Checkout/Checkout';
 import Order from './Components/Order/Order';
+import GenericInfoPage from './Pages/GenericInfo';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/gaming" element={<Gaming />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order" element={<Order />} />
+            <Route path="/generic-info" element={<GenericInfoPage />} />
           </Routes>
           <Footer />
         </div>

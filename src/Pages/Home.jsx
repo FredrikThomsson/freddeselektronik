@@ -8,8 +8,10 @@ const Home = () => {
   return (
     <div>
         <NewHero />
+        
     </div>
   );
 };
 
 export default Home;
+

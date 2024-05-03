@@ -1,0 +1,27 @@
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, #78b5cd, #e1ffea22 60%);
+}
+
+.contact-title {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.contact-button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.contact-button:hover {
+  background-color: #0056b3;
+}

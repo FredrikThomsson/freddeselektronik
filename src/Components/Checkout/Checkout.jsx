@@ -246,12 +246,10 @@ const Checkout = () => {
             </div>
           </div>
 
-         
-        </Form>
-
-        <Button variant="primary" type="submit" disabled={!formValid} className="button-margin"> Place order</Button>
+          <Button variant="primary" type="submit" disabled={!formValid} className="button-margin"> Place order</Button>
           <br></br>
-        
+
+        </Form>
           <p>(If the button isn't responding please check if the form is filled correctly.)</p>
 
       </div>
