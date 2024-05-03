@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import AllProducts from './AllProducts';
-import { fetchProducts } from '../../api/dataFetcher';
-import { urlFor } from '../../lib/sanity';
+
 
 
 const ComputerProducts = () => {
 
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const data = await fetchProducts();
-      setProducts(data);
-    }
-    fetchData();
-  }, []);
 
   return (
     <div>
