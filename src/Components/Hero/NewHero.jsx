@@ -60,6 +60,7 @@ const NewHero = () => {
       </Button>
       </Link>
 
+      <Link to="/phones" className='button-link'>
       <Button variant="light" className="d-flex flex-column align-items-center">
         <span style={{ marginBottom: '0.5rem' }}>Phones</span> 
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">
@@ -67,6 +68,7 @@ const NewHero = () => {
         <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
         </svg>
       </Button>
+      </Link>
       </div>
         
         </Col>

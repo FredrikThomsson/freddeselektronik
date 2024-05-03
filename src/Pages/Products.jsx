@@ -20,6 +20,9 @@ const Products = () => {
       <h2>Gaming Products</h2>
       <AllProducts category="Gaming" /> 
 
+      <h2>Phone Products</h2>
+      <AllProducts category="Phones" /> 
+
 
     </div>
   );

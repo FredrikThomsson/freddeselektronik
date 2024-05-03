@@ -4,6 +4,7 @@ import p3_img from './images/tv1.png'
 import p4_img from './images/gameboy.jpeg'
 import p5_img from './images/ps2.jpeg'
 import p6_img from './images/street-fighter-1.jpeg'
+import p7_img from './images/Nokia.png'
 
 let all_product = [
     {
@@ -120,6 +121,15 @@ let all_product = [
         image: p6_img,
         new_price: 4999.00,
         category: ["Gaming"],
+    },
+
+    {
+        id:14,
+        name:"Nokia Phone",
+        image:p7_img,
+        new_price: 3499.00,
+        category: "Phones",
+        description: "Experience smooth phonecalls with the Nokia phone",
     },
    
 ];
