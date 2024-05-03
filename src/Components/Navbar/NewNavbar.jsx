@@ -37,6 +37,7 @@ function BasicExample() {
             <NavDropdown.Item as={Link} to="/televisions">Televisions</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/sound">Sound</NavDropdown.Item>
             <NavDropdown.Item as={Link} to="/gaming">Gaming</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/phones">Phones</NavDropdown.Item>
           </NavDropdown>
         </Nav>
         <Link to="/login" className="icon-link">
