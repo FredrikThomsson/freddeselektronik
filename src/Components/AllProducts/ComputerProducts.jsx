@@ -20,20 +20,6 @@ const ComputerProducts = () => {
     <div>
       <h2>Computer Products</h2>
       <AllProducts category="Computer" />
- <h1>Products sanity -- test</h1>
-      
-        {products.map(product => (
-          <li key={product._id}>
-            <h2>{product.name}</h2>
-          
-            <p>Price: {product.price}kr</p>
-            <img
-              src={urlFor(product.image).url()}
-              alt={`Image for ${product.name}`}
-            />
-          </li>
-        ))}
-      
       
     </div>
   );
