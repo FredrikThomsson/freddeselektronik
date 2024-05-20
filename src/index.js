@@ -4,11 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ShopContextProvider from './Context/ShopContext';
+import { Auth0Provider } from '@auth0/auth0-react';
+
+const domain = process.env.REACT_APP_AUTH0_DOMAIN;
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <ShopContextProvider> 
-    <App />
+      <Auth0Provider
+      domain='dev-icjalneyifkmjsq7.eu.auth0.com'
+      clientId='Zr81Se0hnDN7USpapu7Q656fbXBCvatR'
+      redirectUri={window.location.origin}
+      >
+      <App />
+      </Auth0Provider>
    </ShopContextProvider>
 
  
