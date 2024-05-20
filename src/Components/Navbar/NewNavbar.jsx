@@ -44,11 +44,11 @@ function BasicExample() {
           </NavDropdown>
        
           <Profile />
-       
-          
+
         </Nav>
    
         <Login/>
+      
         <div className="nav-login-cart">
           <Link to="/cart">
             <img id="cart" src={cart_icon} alt="cart" />
@@ -56,7 +56,9 @@ function BasicExample() {
           <div className="nav-cart-count">{cartQuantity}</div>
         </div>
       </Navbar.Collapse>
+      
     </Container>
+    <Logout />
   </Navbar>
   );
 }
