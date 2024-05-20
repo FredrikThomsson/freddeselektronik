@@ -11,9 +11,15 @@ import AllProducts from '../../Components/AllProducts/AllProducts';
 import Carousel from 'react-bootstrap/Carousel';
 import ExampleCarouselImage from '../../Components/Assets/Carouse/ExampleCarouseImage.js';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const NewHero = () => {
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate('/product/2');
+  };
   return (
     <div>
       <Container>
@@ -72,7 +78,7 @@ const NewHero = () => {
       </div>
         
         </Col>
-        <Col xs={12} md={8} className="hero-column">
+        <Col xs={12} md={8} className="hero-column" onClick={handleRedirect}>
             <div className='background-wrapper'>
               <div className='content-wrapper'>
                 <div className='hero-text'>
