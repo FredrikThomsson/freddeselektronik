@@ -7,7 +7,7 @@ const Profile = () => {
     return (
         isAuthenticated && (
             <div className="profile-container">
-                <p className="profile-name">Welcome! {user.name}</p>
+                <p className="profile-name">Welcome, {user.name}</p>
             </div>
         )
     );
