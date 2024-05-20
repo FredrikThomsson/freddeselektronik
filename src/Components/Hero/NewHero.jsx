@@ -23,10 +23,13 @@ const NewHero = () => {
     navigate('/product/2');
   };
   const handleRedirectLapTop = () => {
-    navigate('/product/1');
+    navigate('/computers');
   };
   const handleRedirectPhone = () => {
-    navigate('/product/14');
+    navigate('/phones');
+  };
+  const handleRedirectTv = () => {
+    navigate('/televisions');
   };
   return (
     <div>
@@ -126,7 +129,7 @@ const NewHero = () => {
           <h3 className='carousel-text'>Smartphones</h3>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item onClick={handleRedirect}>
+      <Carousel.Item onClick={handleRedirectTv}>
       <ExampleCarouselImage src={SlideShowTv} height='400px' width='800px' text="Third slide"  />
         <Carousel.Caption>
         <h3 className='carousel-text'>TVs</h3>

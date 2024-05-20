@@ -4,7 +4,6 @@ import PhoneProducts from '../Components/AllProducts/PhoneProducts'
 const Phones = () => {
   return (
     <div>
-      Phones
       <PhoneProducts />
     </div>
   )
