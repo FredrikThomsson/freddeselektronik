@@ -11,6 +11,8 @@ const Orders = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [showModal, setShowModal] = useState(false); // State to control modal visibility
+  const [showProcessing, setShowProcessing] = useState(false); // State to toggle processing filter
+  const [showShipped, setShowShipped] = useState(false); // State to toggle shipped filter
 
   useEffect(() => {
     const getOrders = async () => {
@@ -23,21 +25,29 @@ const Orders = () => {
   }, []);
 
   useEffect(() => {
+    let filtered = orders;
+
     if (startDate && endDate) {
-      const filtered = orders.filter((order) => {
+      filtered = filtered.filter((order) => {
         const orderDate = new Date(order._createdAt);
         return orderDate >= startDate && orderDate <= endDate;
       });
-      setFilteredOrders(filtered);
-    } else {
-      setFilteredOrders(orders);
     }
-  }, [startDate, endDate, orders]);
+
+    if (showProcessing) {
+      filtered = filtered.filter(order => order.processing);
+    }
+
+    if (showShipped) {
+      filtered = filtered.filter(order => order.shipped);
+    }
+
+    setFilteredOrders(filtered);
+  }, [startDate, endDate, orders, showProcessing, showShipped]);
 
   const handleResetDates = () => {
     setStartDate(null);
     setEndDate(null);
-    setFilteredOrders(orders);
   };
 
   const handleDeleteAll = async () => {
@@ -66,8 +76,24 @@ const Orders = () => {
         <button onClick={handleResetDates}>Reset Dates</button>
         <button onClick={handleShowModal}>Delete All Displayed Orders</button>
       </div>
+      <div>
+        <label>Show Processing: </label>
+        <input
+          type="checkbox"
+          checked={showProcessing}
+          onChange={() => setShowProcessing(!showProcessing)}
+        />
+      </div>
+      <div>
+        <label>Show Shipped: </label>
+        <input
+          type="checkbox"
+          checked={showShipped}
+          onChange={() => setShowShipped(!showShipped)}
+        />
+      </div>
       {filteredOrders.length === 0 ? (
-        <p>No orders found for the selected date range.</p>
+        <p>No orders found for the selected criteria.</p>
       ) : (
         <ul>
           {filteredOrders.sort((a, b) => new Date(b._createdAt) - new Date(a._createdAt)).map((order) => (

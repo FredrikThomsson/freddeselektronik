@@ -60,6 +60,8 @@ const OrderDetails = () => {
         ))}
       </ul>
       <div>
+        <h4>Order status:</h4>
+        <p>It may take a few minutes before the order status is updated in the database</p>
         <label>
           Processing:
           <input type="checkbox" checked={processing} onChange={handleProcessingChange} />
