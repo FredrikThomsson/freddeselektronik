@@ -6,11 +6,20 @@
  margin-right: 10px;
  margin-left: 5rem;
 }
+
 .nav-buttons {
     padding-top: 50px;
     padding-left: 50px;
     padding-bottom: 50px;
 }
+@media (max-width: 767px) {
+  .nav-buttons Button {
+    width: 400px;
+    margin-right: 130px;
+  }
+}
+
+
 
 .hero-img {
    
@@ -62,4 +71,27 @@
 color: rgb(255, 255, 255);
 font-size: 50px;
 padding-bottom: 340px;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 767px) {
+  .hero-column {
+   width: 620px;
+  }
+  .hero-text {
+    font-size: 20px;
+    margin-left: 70px;
+    padding-bottom: 50px;
+  }
+  .hero-img {
+    padding-bottom: 35px;
+    padding-right: 20px;
+  }
 }
