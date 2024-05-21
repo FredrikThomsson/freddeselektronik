@@ -48,12 +48,7 @@
     padding-left: 10px;
 
   }
-  .current-offers {     
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-    padding-left: 26rem;
-    background-color: rgb(230, 239, 239);
-  }
+
 .Carousel {
     width: 1000px;
     padding-top: 5rem;
@@ -93,5 +88,16 @@ padding-bottom: 340px;
   .hero-img {
     padding-bottom: 35px;
     padding-right: 20px;
+  }
+  .Carousel {
+    max-width: 500px; 
+  }
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+  .carousel-container {
+    max-width: 600px; 
+  }
+  .hero-column {
+    padding-left: 70px;
   }
 }
