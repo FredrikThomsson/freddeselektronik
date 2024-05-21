@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { fetchOrderById } from '../../api/dataFetcher'; // adjust the import path as needed
+import { fetchOrderById, updateOrder } from '../../api/dataFetcher'; // adjust the import path as needed
 
 const OrderDetails = () => {
   const { orderId } = useParams();
   const [order, setOrder] = useState(null);
+  const [processing, setProcessing] = useState(false);
+  const [shipped, setShipped] = useState(false);
   const navigate = useNavigate(); // Import useNavigate from 'react-router-dom'
 
   useEffect(() => {
     const getOrder = async () => {
       const fetchedOrder = await fetchOrderById(orderId);
       setOrder(fetchedOrder);
+      // Set the initial values for processing and shipped checkboxes
+      setProcessing(fetchedOrder.processing || false);
+      setShipped(fetchedOrder.shipped || false);
     };
 
     getOrder();
@@ -18,6 +23,18 @@ const OrderDetails = () => {
 
   const handleGoBack = () => {
     navigate('/admin'); // Navigate to the /admin route
+  };
+
+  const handleProcessingChange = () => {
+    const updatedOrder = { ...order, processing: !processing };
+    updateOrder(orderId, updatedOrder); // Call API to update order with new processing value
+    setProcessing(!processing); // Update local state for checkbox
+  };
+
+  const handleShippedChange = () => {
+    const updatedOrder = { ...order, shipped: !shipped };
+    updateOrder(orderId, updatedOrder); // Call API to update order with new shipped value
+    setShipped(!shipped); // Update local state for checkbox
   };
 
   if (!order) {
@@ -42,6 +59,18 @@ const OrderDetails = () => {
           </li>
         ))}
       </ul>
+      <div>
+        <label>
+          Processing:
+          <input type="checkbox" checked={processing} onChange={handleProcessingChange} />
+        </label>
+      </div>
+      <div>
+        <label>
+          Shipped:
+          <input type="checkbox" checked={shipped} onChange={handleShippedChange} />
+        </label>
+      </div>
       <button onClick={handleGoBack}>Go Back to Admin</button>
     </div>
   );
