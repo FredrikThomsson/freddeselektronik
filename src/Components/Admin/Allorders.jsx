@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchOrders } from '../../api/dataFetcher';
+import { fetchOrders, deleteOrder } from '../../api/dataFetcher';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Modal, Button } from 'react-bootstrap'; // Import Modal and Button from react-bootstrap
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [filteredOrders, setFilteredOrders] = useState([]);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [showModal, setShowModal] = useState(false); // State to control modal visibility
 
   useEffect(() => {
     const getOrders = async () => {
@@ -38,6 +40,21 @@ const Orders = () => {
     setFilteredOrders(orders);
   };
 
+  const handleDeleteAll = async () => {
+    try {
+      const deletePromises = filteredOrders.map(order => deleteOrder(order._id));
+      await Promise.all(deletePromises);
+      setOrders(orders.filter(order => !filteredOrders.includes(order)));
+      setFilteredOrders([]);
+      setShowModal(false); // Close modal after deletion
+    } catch (error) {
+      console.error('Failed to delete orders:', error);
+    }
+  };
+
+  const handleShowModal = () => setShowModal(true); // Show modal
+  const handleCloseModal = () => setShowModal(false); // Close modal without deleting
+
   return (
     <div>
       <h1>All Orders</h1>
@@ -47,6 +64,7 @@ const Orders = () => {
         <label>End Date: </label>
         <DatePicker selected={endDate} onChange={date => setEndDate(date)} />
         <button onClick={handleResetDates}>Reset Dates</button>
+        <button onClick={handleShowModal}>Delete All Displayed Orders</button>
       </div>
       {filteredOrders.length === 0 ? (
         <p>No orders found for the selected date range.</p>
@@ -63,6 +81,18 @@ const Orders = () => {
           ))}
         </ul>
       )}
+
+      {/* Confirmation Modal */}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to delete these orders?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>Go Back</Button>
+          <Button variant="danger" onClick={handleDeleteAll}>Yes, Delete</Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
