@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { fetchOrderById, updateOrder } from '../../api/dataFetcher'; // adjust the import path as needed
+import { fetchOrderById, updateOrder } from '../../api/dataFetcher';
 
 const OrderDetails = () => {
   const { orderId } = useParams();
   const [order, setOrder] = useState(null);
   const [processing, setProcessing] = useState(false);
   const [shipped, setShipped] = useState(false);
-  const navigate = useNavigate(); // Import useNavigate from 'react-router-dom'
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const getOrder = async () => {
       const fetchedOrder = await fetchOrderById(orderId);
       setOrder(fetchedOrder);
-      // Set the initial values for processing and shipped checkboxes
       setProcessing(fetchedOrder.processing || false);
       setShipped(fetchedOrder.shipped || false);
     };

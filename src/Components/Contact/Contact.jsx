@@ -1,20 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import './Contact.css'; // Import your Contact component CSS file
+import { Link } from 'react-router-dom'; 
+import './Contact.css'; 
 
 const Contact = () => {
-  // Define functions inside the component or import them if necessary
-  const handleChat = () => {
-    // Handle chat functionality
-  }
+
 
   const handleEmail = () => {
     window.location.href = 'mailto:Freddeselektronik@gmail.com';
   }
 
-  const handleOther = () => {
-    // Handle other information functionality
-  }
+
 
   return (
     <div className="contact-container">

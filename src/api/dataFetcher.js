@@ -25,7 +25,6 @@ export async function fetchOrderById(orderId) {
   const orderQuery = `*[_type == "order" && _id == $orderId][0]`;
   return await client.fetch(orderQuery, { orderId });
 }
-// api/dataFetcher.js
 
 export const updateOrder = async (id, updatedOrder) => {
   try {
@@ -41,7 +40,6 @@ export const updateOrder = async (id, updatedOrder) => {
   }
 };
 
-// Delete order
 export const deleteOrder = async (id) => {
   try {
     await client.delete(id);

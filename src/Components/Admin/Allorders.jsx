@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import { fetchOrders, deleteOrder } from '../../api/dataFetcher';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Modal, Button } from 'react-bootstrap'; // Import Modal and Button from react-bootstrap
+import { Modal, Button } from 'react-bootstrap';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [filteredOrders, setFilteredOrders] = useState([]);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [showModal, setShowModal] = useState(false); // State to control modal visibility
-  const [showProcessing, setShowProcessing] = useState(false); // State to toggle processing filter
-  const [showShipped, setShowShipped] = useState(false); // State to toggle shipped filter
+  const [showModal, setShowModal] = useState(false); 
+  const [showProcessing, setShowProcessing] = useState(false); 
+  const [showShipped, setShowShipped] = useState(false); 
 
   useEffect(() => {
     const getOrders = async () => {
@@ -101,7 +101,6 @@ const Orders = () => {
               <Link to={`/order/${order._id}`}>
                 <h2>Order ID: {order._id}</h2>
                 <p>Created At: {new Date(order._createdAt).toLocaleString()}</p>
-                {/* Add more fields as necessary */}
               </Link>
             </li>
           ))}
