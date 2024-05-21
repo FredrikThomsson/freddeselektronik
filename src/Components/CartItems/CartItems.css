@@ -61,3 +61,12 @@
     color: red;
 
   }
+
+
+  @media (max-width: 767px) {
+    .cartitems-quantity {
+      margin-left: -130px;
+    }
+    .cartitems-format {
+      margin-left: -20px;    }
+  }
