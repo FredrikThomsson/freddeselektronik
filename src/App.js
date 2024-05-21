@@ -20,6 +20,9 @@ import Checkout from './Components/Checkout/Checkout';
 import Order from './Components/Order/Order';
 import GenericInfoPage from './Pages/GenericInfo';
 import Phones from './Pages/Phones';
+import Admin from './Pages/Admin';
+import OrderDetails from './Components/Admin/Orderdetails';
+
 
 function App() {
   return (
@@ -42,6 +45,8 @@ function App() {
             <Route path="/order" element={<Order />} />
             <Route path="/generic-info" element={<GenericInfoPage />} />
             <Route path="/Phones" element={<Phones />} />
+            <Route path="/admin" element={<Admin/>} />
+            <Route path="/order/:orderId" element={<OrderDetails />} />
           </Routes>
           <Footer />
         </div>

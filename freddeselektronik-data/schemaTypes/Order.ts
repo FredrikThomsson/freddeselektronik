@@ -45,11 +45,7 @@ export default {
         type: 'string',
     
       },
-      {
-        name: 'orderId',
-        title: 'Order ID',
-        type: 'number',
-      },
+
       
       {
         name: 'products',

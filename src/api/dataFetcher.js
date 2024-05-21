@@ -17,3 +17,11 @@ export async function fetchLatestOrder() {
   const latestOrderQuery = `*[_type == "order"] | order(_createdAt desc) [0]`;
   return await client.fetch(latestOrderQuery);
 }
+export async function fetchOrders() {
+  const ordersQuery = `*[_type == "order"] | order(_createdAt desc)`;
+  return await client.fetch(ordersQuery);
+}
+export async function fetchOrderById(orderId) {
+  const orderQuery = `*[_type == "order" && _id == $orderId][0]`;
+  return await client.fetch(orderQuery, { orderId });
+}

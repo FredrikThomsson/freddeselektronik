@@ -5,12 +5,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { createClient } from '@sanity/client';
 import { useNavigate } from 'react-router-dom';
-import { fetchOrderId } from '../../api/dataFetcher';
+
 
 const Checkout = () => {
   const { all_product, cartItems } = useContext(ShopContext);
   const navigate = useNavigate();
-  const [nextOrderId, setNextOrderId] = useState(null);
   const [formValid, setFormValid] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0); // State to hold total price
 
@@ -32,13 +31,7 @@ const Checkout = () => {
 
   
 
-  useEffect(() => {
-    async function fetchData() {
-      const latestOrder = await fetchOrderId();
-      setNextOrderId(latestOrder && latestOrder.orderId ? latestOrder.orderId + 1 : 1);
-    }
-    fetchData();
-  }, []);
+
 
   useEffect(() => {
     const isValid = formData.name.trim() && 
@@ -100,11 +93,11 @@ const Checkout = () => {
       return acc;
     }, []);
 
-    // Merge formData with product data and orderId
+
     const finalData = {
       ...formData,
       products: products,
-      orderId: nextOrderId,
+
     };
 
     try {

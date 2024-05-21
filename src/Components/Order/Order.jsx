@@ -18,7 +18,7 @@ const Order = () => {
         <p> We'll be shipping it to you as soon as possible!</p>
         <div>
           <h3>Order Details:</h3>
-          <p>Order ID: {order.orderId}</p>
+          <p>Order ID: {order._id}</p>
           <p>Name: {order.name} {order.lastname}</p>
           <p>Email: {order.email}</p>
           <p>Address: {order.address}</p>
