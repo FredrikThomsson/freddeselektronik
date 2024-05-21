@@ -25,6 +25,8 @@ const Adminlogin = ({ onLogin }) => {
       <h2>Login</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
+        <p>Username: admin</p>
+        <p>Password: admin</p>
         <div>
           <label>Username:</label>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />

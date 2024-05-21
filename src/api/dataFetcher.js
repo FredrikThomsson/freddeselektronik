@@ -25,3 +25,4 @@ export async function fetchOrderById(orderId) {
   const orderQuery = `*[_type == "order" && _id == $orderId][0]`;
   return await client.fetch(orderQuery, { orderId });
 }
+
