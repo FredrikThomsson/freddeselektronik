@@ -35,7 +35,7 @@ const Orders = () => {
     }
 
     if (showProcessing) {
-      filtered = filtered.filter(order => order.processing);
+      filtered = filtered.filter(order => order.processing && !order.shipped);
     }
 
     if (showShipped) {
@@ -56,7 +56,7 @@ const Orders = () => {
       await Promise.all(deletePromises);
       setOrders(orders.filter(order => !filteredOrders.includes(order)));
       setFilteredOrders([]);
-      setShowModal(false); // Close modal after deletion
+      setShowModal(false);
     } catch (error) {
       console.error('Failed to delete orders:', error);
     }

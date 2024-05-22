@@ -26,13 +26,13 @@ const OrderDetails = () => {
 
   const handleProcessingChange = () => {
     const updatedOrder = { ...order, processing: !processing };
-    updateOrder(orderId, updatedOrder); // Call API to update order with new processing value
+    updateOrder(orderId, updatedOrder); // Call API to update order with new value for processing 
     setProcessing(!processing); // Update local state for checkbox
   };
 
   const handleShippedChange = () => {
     const updatedOrder = { ...order, shipped: !shipped };
-    updateOrder(orderId, updatedOrder); // Call API to update order with new shipped value
+    updateOrder(orderId, updatedOrder); // Call API to update order with new value for shipped 
     setShipped(!shipped); // Update local state for checkbox
   };
 
