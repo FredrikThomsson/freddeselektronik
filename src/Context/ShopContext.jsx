@@ -6,18 +6,28 @@ export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
     let cart = {};
-    for (let index = 0; index < all_product.length + 1; index++) {
+    for (let index = 0; index < all_product.length; index++) {
         cart[index] = 0;
     }
     return cart;
-}
+};
 
 const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
     const [showSnackbar, setShowSnackbar] = useState(false);
+    const [actionMessage, setActionMessage] = useState("");
 
     const addToCart = (itemId) => {
+        const itemName = all_product.find(product => product.id === itemId).name;
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+        setActionMessage(`${itemName} has been added to cart!`);
+        setShowSnackbar(true);
+    };
+
+    const removeFromCart = (itemId) => {
+        const itemName = all_product.find(product => product.id === itemId).name;
+        setCartItems((prev) => ({ ...prev, [itemId]: Math.max(prev[itemId] - 1, 0) }));
+        setActionMessage(`${itemName} has been removed from cart!`);
         setShowSnackbar(true);
     };
 
@@ -25,7 +35,14 @@ const ShopContextProvider = (props) => {
         setShowSnackbar(false);
     };
 
-    const contextValue = { all_product, cartItems, addToCart };
+    const removeAll = (itemId) => {
+        const itemName = all_product.find(product => product.id === itemId).name;
+        setCartItems((prev) => ({ ...prev, [itemId]: 0 }));G
+        setActionMessage(`All ${itemName}s have been removed from cart!`);
+        setShowSnackbar(true);
+    };
+
+    const contextValue = { all_product, cartItems, addToCart, removeFromCart, removeAll };
 
     return (
         <ShopContext.Provider value={contextValue}>
@@ -34,12 +51,11 @@ const ShopContextProvider = (props) => {
                 open={showSnackbar}
                 autoHideDuration={3000}
                 onClose={handleCloseSnackbar}
-                message="Item added to cart!"
-                anchorOrigin={{ vertical: 'top', horizontal: 'right' }} 
-                
+                message={actionMessage}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             />
         </ShopContext.Provider>
     );
-}
+};
 
 export default ShopContextProvider;
