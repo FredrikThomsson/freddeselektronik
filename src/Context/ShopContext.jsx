@@ -37,7 +37,7 @@ const ShopContextProvider = (props) => {
 
     const removeAll = (itemId) => {
         const itemName = all_product.find(product => product.id === itemId).name;
-        setCartItems((prev) => ({ ...prev, [itemId]: 0 }));G
+        setCartItems((prev) => ({ ...prev, [itemId]: 0 }));
         setActionMessage(`All ${itemName}s have been removed from cart!`);
         setShowSnackbar(true);
     };
