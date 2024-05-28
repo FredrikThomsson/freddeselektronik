@@ -4,47 +4,38 @@ import './Contact.css';
 
 const Contact = () => {
 
-
   const handleEmail = () => {
     window.location.href = 'mailto:Freddeselektronik@gmail.com';
   }
 
-
-
   return (
     <div className="contact-container">
-      <h1>Välkommen till Kundservice</h1>
-      <h2 className="contact-title">Vad kan vi hjälpa dig med?</h2>
+      <h1>Welcome to Customer Service</h1>
+      <h2 className="contact-title">How can we assist you?</h2>
 
-     
-        <h4>FRI FRAKT</h4>
-        <p>Hos oss får du fri frakt med billigaste fraktalternativet på alla ordrar över 500 kronor. Vi erbjuder dessutom flera olika tillval i form av till exempel paketskåp- eller hemleverans. Läs mer under övrig information.</p>
-        <br></br>
-  
+      <h4>FREE SHIPPING</h4>
+      <p>We offer free shipping with the cheapest shipping option on all orders over 500 SEK. We also offer several additional options such as parcel locker or home delivery. Read more under other information.</p>
+      <br></br>
 
-    
-        <h4>ÖPPET KÖP I 60 DAGAR</h4>
-        <p>Vi erbjuder dig 60 dagars öppet köp. Om du av någon anledning ångrar dig så har du utöver 14 dagars ångerrätt även 60 dagars öppet köp. Läs mer under övrig information.</p>
-        <br></br>
-     
-      
-        <h4>FRI RETUR</h4>
-        <p>Vid både öppet köp och ångerrätt så står vi för alla fraktkostnader. Skapa enkelt ett returärende så får du en fraktsedel av oss, så att du snabbt och enkelt kan returnera din vara. Läs mer Läs mer under övrig information.</p>
-        <br></br>
-  
-        <div className="contact-info">
-        <h3>Kontakta oss</h3>
-        <p>Telefon Öppen helgfria vardagar: 09:00 - 17:00. Telefon: 031-7xx xx xx</p>
+      <h4>60 DAYS RETURN POLICY</h4>
+      <p>We offer a 60-day return policy. If for any reason you change your mind, in addition to the 14-day right of withdrawal, you also have a 60-day return policy. Read more under other information.</p>
+      <br></br>
+
+      <h4>FREE RETURNS</h4>
+      <p>For both the return policy and the right of withdrawal, we cover all shipping costs. Simply create a return case and you will receive a shipping label from us so you can quickly and easily return your item. Read more under other information.</p>
+      <br></br>
+
+      <div className="contact-info">
+        <h3>Contact us</h3>
+        <p>Phone open weekdays: 09:00 - 17:00. Phone: 031-7xx xx xx</p>
       </div>
 
       <div className="button-container">
-        <button className="contact-button" onClick={handleEmail}>Maila oss</button>
+        <button className="contact-button" onClick={handleEmail}>Email us</button>
         <Link to="/generic-info">
-          <button className="contact-button">Övrig information</button>
+          <button className="contact-button">Other information</button>
         </Link>
       </div>
-
-      
     </div>
   );
 }

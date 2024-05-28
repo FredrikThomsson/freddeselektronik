@@ -1,5 +1,3 @@
-// components/ExampleCarouselImage.js
-
 import React from 'react';
 
 function ExampleCarouselImage({ src, text }) {

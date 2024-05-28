@@ -6,5 +6,5 @@
 
 .profile-name {
     margin: 0;
-    white-space: nowrap; /* Prevents line break */
+    white-space: nowrap; 
 }

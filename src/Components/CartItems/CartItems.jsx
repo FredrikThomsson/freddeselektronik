@@ -56,7 +56,6 @@ const CartItems = () => {
         return null; 
       })}
 
-      {/* Render total price */}
       <p className="total-price">Total Price: {totalPrice}kr</p>
 
       <div>

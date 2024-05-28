@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -7,7 +6,6 @@ import NewNavbar from './Components/Navbar/NewNavbar';
 import Home from './Pages/Home';
 import Products from './Pages/Products';
 import Contact from './Pages/Contact';
-import LoginSignup from './Pages/LoginSignup';
 import ProductPage from './Pages/ProductPage';
 import Cart from './Pages/Cart';
 import Computers from './Pages/Computers';
@@ -35,7 +33,6 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<LoginSignup />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/computers" element={<Computers />} />
             <Route path="/sound" element={<Sound />} />
